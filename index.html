@@ -348,23 +348,61 @@
     .ornament { display: none; }
     button, a, input, textarea { cursor: pointer; }
   }
-  @media (max-width: 600px) {
+ @media (max-width: 600px) {
+    /* Nav: tighter, no border on logo */
     .nav-links { display: none; }
     .nav-logo-text { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    h1 { font-size: 3.5rem; }
-    .section { padding: 80px 24px; }
-    .service-panel { padding: 40px 24px; }
-    .combined-card { padding: 48px 24px; }
-    .process-inner { padding: 80px 24px; }
-    .testimonial-section { padding: 80px 24px; }
-    .cta-inner { padding: 80px 24px; }
+    nav { padding: 16px 20px; }
+    nav.scrolled { padding: 12px 20px; }
+    .nav-logo-mark { font-size: 1.5rem; }
+    .nav-cta { padding: 8px 16px; font-size: 0.62rem; letter-spacing: 0.12em; }
+
+    /* Hero: tighter padding, smaller heading */
+    .hero { padding: 90px 24px 60px; min-height: auto; }
+    h1 { font-size: 3rem; margin-bottom: 32px; }
+    .hero-eyebrow { margin-bottom: 28px; font-size: 0.62rem; }
+    .hero-desc { margin-bottom: 40px; font-size: 0.88rem; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .hero-scroll { display: none; }
+
+    /* Sections */
+    .section { padding: 70px 24px; }
+    .service-panel { padding: 36px 24px; }
+    .combined-card { padding: 40px 24px; }
+    .process-inner { padding: 70px 24px; }
+    .testimonial-section { padding: 70px 24px; }
+    .cta-inner { padding: 70px 24px; gap: 50px; }
     .form-row { grid-template-columns: 1fr; }
     footer { padding: 32px 24px; }
     .divider { margin: 0 24px; }
-    .liquid-option { padding: 12px 18px; font-size: 0.62rem; letter-spacing: 0.12em; }
+
+    /* Toggle: shrink and fit all 3 tabs */
+    .liquid-toggle { padding: 4px; }
+    .liquid-option { padding: 10px 14px; font-size: 0.58rem; letter-spacing: 0.1em; }
     .toggle-wrap { margin: 40px 0 20px; }
-  }
+
+    /* Service section: kill the giant 01 number, tighter heading */
+    .service-number { font-size: 2.5rem; margin-bottom: 16px; color: rgba(201,168,76,0.25); }
+    .service-title { font-size: 1.6rem; margin-bottom: 16px; }
+    .service-desc { font-size: 0.85rem; margin-bottom: 28px; line-height: 1.7; }
+    .service-includes { gap: 12px; }
+    .service-includes li { font-size: 0.78rem; }
+    .service-link { margin-top: 28px; }
+
+    /* Process: stack vertically on mobile, less wasted space */
+    .process-steps { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+    .process-step { padding: 0; }
+    .step-dot { width: 44px; height: 44px; margin-bottom: 20px; }
+    .step-title { font-size: 1.3rem; }
+
+    /* Testimonial: shrink the giant background quote */
+    .testimonial-section::before { font-size: 14rem; top: 40px; }
+    blockquote { font-size: 1.4rem; margin-bottom: 28px; }
+
+    /* Combined card: tighter spacing */
+    .combined-grid { gap: 32px; }
+    .combined-cta-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+  }  }
 </style>
 </head>
 <body>
@@ -434,14 +472,12 @@
   <div class="reveal reveal-delay-2"><p class="section-sub">Everything I offer is built around one outcome — more enquiries and more clients for your business. Choose what fits.</p></div>
 
   <div class="reveal reveal-delay-3 toggle-wrap">
-    <div class="liquid-toggle" id="liquidToggle">
+ <div class="liquid-toggle" id="liquidToggle">
       <div class="liquid-pill" id="liquidPill"></div>
-      <button class="liquid-option active" data-view="email">Cold Email</button>
-      <button class="liquid-option" data-view="web">Website Design</button>
-      <button class="liquid-option" data-view="both">The Full Package</button>
+      <button class="liquid-option active" data-view="email"><span class="full">Cold Email</span><span class="short">Email</span></button>
+      <button class="liquid-option" data-view="web"><span class="full">Website Design</span><span class="short">Web</span></button>
+      <button class="liquid-option" data-view="both"><span class="full">The Full Package</span><span class="short">Both</span></button>
     </div>
-  </div>
-
   <div class="services-stage" id="servicesStage">
 
     <!-- Email view -->
